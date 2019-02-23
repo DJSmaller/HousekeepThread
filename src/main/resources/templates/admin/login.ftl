@@ -34,8 +34,7 @@
 	                </div>
                 </#if>
                 <form method="post" action="${ctx!}/admin/login" id="frm">
-                    <h4 class="no-margins">登录：</h4>
-                    <p class="m-t-md">登录到H+后台主题UI框架</p>
+                    <h4 class="no-margins">家政统一管理后台</h4>
                     <input type="text" class="form-control uname" name="username" id="username" placeholder="用户名" />
                     <input type="password" class="form-control pword m-b" name="password" id="password"  placeholder="密码" />
                     <a href="" class="forget">忘记密码了？</a>

@@ -23,7 +23,7 @@ import net.sppan.base.entity.support.BaseEntity;
  * 用户账户表
  * </p>
  *
- * @author SPPan
+ * @author
  * @since 2016-12-28
  */
 @Entity

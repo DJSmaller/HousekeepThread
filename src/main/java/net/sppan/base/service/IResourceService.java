@@ -14,7 +14,7 @@ import net.sppan.base.vo.ZtreeView;
  * 资源服务类
  * </p>
  *
- * @author SPPan
+ * @author
  * @since 2016-12-28
  */
 public interface IResourceService extends IBaseService<Resource, Integer> {

@@ -26,7 +26,7 @@ import net.sppan.base.service.support.impl.BaseServiceImpl;
  * 角色表  服务实现类
  * </p>
  *
- * @author SPPan
+ * @author
  * @since 2016-12-28
  */
 @Service
