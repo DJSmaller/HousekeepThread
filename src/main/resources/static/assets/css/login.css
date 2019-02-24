@@ -2,12 +2,12 @@ html{height: 100%;}
 body.signin {
     background: #18c8f6;
     height: auto;
-    background:url("../img/login-background.jpg") no-repeat center fixed;
+    background:url("../img/background.jpg") no-repeat center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    color: rgba(255,255,255,.95);
+    color: rgba(204, 0, 13, 0.95);
 }
 
 .signinpanel {

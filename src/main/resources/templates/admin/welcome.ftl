@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	welcome to
+<body background="../img/background.jpg">
+	欢迎来到家政线索管后台
+
 </body>
 </html>
