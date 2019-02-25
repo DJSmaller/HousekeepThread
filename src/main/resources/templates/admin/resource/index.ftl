@@ -11,7 +11,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    <link rel="shortcut icon" href="favicon.ico"> 
+    <link rel="shortcut icon" href="favicon.ico">
     <link href="${ctx!}/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="${ctx!}/assets/css/font-awesome.css?v=4.4.0" rel="stylesheet">
 
@@ -75,33 +75,33 @@
     <!-- Page-Level Scripts -->
     <script>
         $(document).ready(function () {
-			//初始化表格,动态从服务器加载数据  
+			//初始化表格,动态从服务器加载数据
 			$("#table_list").bootstrapTable({
-			    //使用get请求到服务器获取数据  
+			    //使用get请求到服务器获取数据
 			    method: "POST",
 			    //必须设置，不然request.getParameter获取不到请求参数
 			    contentType: "application/x-www-form-urlencoded",
-			    //获取数据的Servlet地址  
+			    //获取数据的Servlet地址
 			    url: "${ctx!}/admin/resource/list",
-			    //表格显示条纹  
+			    //表格显示条纹
 			    striped: true,
-			    //启动分页  
+			    //启动分页
 			    pagination: true,
-			    //每页显示的记录数  
+			    //每页显示的记录数
 			    pageSize: 10,
-			    //当前第几页  
+			    //当前第几页
 			    pageNumber: 1,
-			    //记录数可选列表  
+			    //记录数可选列表
 			    pageList: [5, 10, 15, 20, 25],
-			    //是否启用查询  
+			    //是否启用查询
 			    search: true,
 			    //是否启用详细信息视图
 			    detailView:true,
 			    detailFormatter:detailFormatter,
-			    //表示服务端请求  
+			    //表示服务端请求
 			    sidePagination: "server",
-			    //设置为undefined可以获取pageNumber，pageSize，searchText，sortName，sortOrder  
-			    //设置为limit可以获取limit, offset, search, sort, order  
+			    //设置为undefined可以获取pageNumber，pageSize，searchText，sortName，sortOrder
+			    //设置为limit可以获取limit, offset, search, sort, order
 			    queryParamsType: "undefined",
 			    //json数据解析
 			    responseHandler: function(res) {
@@ -116,47 +116,114 @@
 			        field: "id",
 			        sortable: true
 			    },{
-			        title: "资源名称",
+			        title: "客户名称",
 			        field: "name"
 			    },{
-			        title: "资源KEY",
-			        field: "sourceKey"
-			    },{
-			        title: "资源类型",
-			        field: "type",
-			        formatter: function(value,row,index){
-			        	if(value == 0)
-                    		return '<span class="label label-info">目录</span>';
-                    	else if(value == 1)
-                    		return '<span class="label label-primary">菜单</span>';
-                    	else if(value == 2)
-                    		return '<span class="label label-warning">按钮</span>';
-			        }
-			    },{
-			        title: "资源URL",
-			        field: "sourceUrl"
-			    },{
-			        title: "层级",
-			        field: "level",
-			        sortable: true
-			    },{
-			        title: "排序",
-			        field: "sort",
-			        sortable: true
-			    },{
-			        title: "图标",
-			        field: "icon"
-			    },{
-			        title: "状态",
-			        sortable: true,
-			        field: "isHide",
-                    formatter: function (value, row, index) {
-                    	if(value == 0)
-                    		return '<span class="label label-info">显示</span>';
-                    	else if(value == 1)
-                    		return '<span class="label label-danger">隐藏</span>';
+                    title: "客户电话",
+                    field: "phoneNum"
+                },{
+                    title: "服务项",
+                    field: "serviceItem",
+                    formatter: function(value,row,index){
+                        if(value == 0)
+                            return '<span class="label label-info">保姆</span>';
+                        else if(value == 1)
+                            return '<span class="label label-primary">月嫂</span>';
                     }
-			    },{
+                },{
+                    title: "产品类型",
+                    field: "type",
+                    formatter: function(value,row,index){
+                        if(value == 0)
+                            return '<span class="label label-info">住家</span>';
+                        else if(value == 1)
+                            return '<span class="label label-primary">钟点</span>';
+                    }
+                },{
+                    title: "服务内容",
+                    field: "serviceContent",
+                    formatter: function(value,row,index){
+                        if(value == 0)
+                            return '<span class="label label-info">做饭</span>';
+                        else if(value == 1)
+                            return '<span class="label label-primary">打扫卫生</span>';
+                        else if(value == 2)
+                            return '<span class="label label-primary">照顾老人</span>';
+                        else if(value == 3)
+                            return '<span class="label label-primary">照顾小孩</span>';
+                    }
+                },{
+                    title: "年龄要求",
+                    field: "ageRange",
+                    formatter: function(value,row,index){
+                        if(value == 0)
+                            return '<span class="label label-info">35岁以下</span>';
+                        else if(value == 1)
+                            return '<span class="label label-primary">36岁-40岁</span>';
+                        else if(value == 2)
+                            return '<span class="label label-primary">41岁-45岁</span>';
+                        else if(value == 3)
+                            return '<span class="label label-primary">46岁及以上</span>';
+                    }
+                },{
+                    title: "哪天要保姆",
+                    field: "dayHk",
+                    formatter: function(value,row,index){
+                        if(value == 0)
+                            return '<span class="label label-info">7天内</span>';
+                        else if(value == 1)
+                            return '<span class="label label-primary">30天内</span>';
+                        else if(value == 2)
+                            return '<span class="label label-primary">30天以上</span>';
+                        else if(value == 3)
+                            return '<span class="label label-primary">待定</span>';
+                    }
+                },{
+                    title: "要多久保姆",
+                    field: "howLongHk",
+                    formatter: function(value,row,index){
+                        if(value == 0)
+                            return '<span class="label label-info">7天内</span>';
+                        else if(value == 1)
+                            return '<span class="label label-primary">30天内</span>';
+                        else if(value == 2)
+                            return '<span class="label label-primary">30天以上</span>';
+                        else if(value == 3)
+                            return '<span class="label label-primary">待定</span>';
+                    }
+                },{
+                    title: "是否是目标客户",
+                    field: "target",
+                    formatter: function(value,row,index){
+                        if(value == 0)
+                            return '<span class="label label-info">是</span>';
+                        else if(value == 1)
+                            return '<span class="label label-primary">否</span>';
+                        else if(value == 2)
+                            return '<span class="label label-primary">待定</span>';
+                    }
+                },{
+                    title: "线索等级",
+                    field: "level",
+                    formatter: function(value,row,index){
+                        if(value == 0)
+                            return '<span class="label label-info">A</span>';
+                        else if(value == 1)
+                            return '<span class="label label-primary">B</span>';
+                        else if(value == 2)
+                            return '<span class="label label-primary">C</span>';
+                    }
+                },
+                    {
+                    title: "预算金额",
+                    field: "money",
+
+                },{
+			        title: "下次跟进时间",
+			        field: "sourceKey",
+                    sortable: true
+
+                },{
 			        title: "创建时间",
 			        field: "createTime",
 			        sortable: true
@@ -164,7 +231,8 @@
 			        title: "更新时间",
 			        field: "updateTime",
 			        sortable: true
-			    },{
+			    },
+                    {
 			        title: "操作",
 			        field: "empty",
                     formatter: function (value, row, index) {
@@ -175,7 +243,7 @@
 			    }]
 			});
         });
-        
+
         function edit(id){
         	layer.open({
         	      type: 2,
@@ -217,7 +285,7 @@
     	    	});
        		});
         }
-        
+
         function detailFormatter(index, row) {
 	        var html = [];
 	        html.push('<p><b>描述:</b> ' + row.description + '</p>');
@@ -225,8 +293,8 @@
 	    }
     </script>
 
-    
-    
+
+
 
 </body>
 
